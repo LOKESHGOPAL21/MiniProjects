@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendation System</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Movie Recommendation System</h1>
+        <form id="recommendation-form">
+            <input type="text" id="movie-title" placeholder="Enter Movie Title" required>
+            <select id="model-type">
+                <option value="v1">CountVectorizer</option>
+                <option value="v2">TF-IDF</option>
+            </select>
+            <button type="submit">Get Recommendations</button>
+        </form>
+
+        <div id="recommendations">
+            <h2>Recommendations:</h2>
+            <ul id="recommendations-list"></ul>
+        </div>
+
+        <div id="performance-metrics">
+            <h2>Performance Metrics:</h2>
+            <p>Conversion Time: <span id="conversion-time"></span></p>
+            <p>Memory (Dense): <span id="dense-memory"></span> KB</p>
+            <p>Memory (Sparse): <span id="sparse-memory"></span> KB</p>
+        </div>
+    </div>
+
+    <script src="static/script.js"></script>
+</body>
+</html>
