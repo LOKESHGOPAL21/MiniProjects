@@ -1,6 +1,3 @@
-Sure, here is the **README.md** version of your project written in proper Markdown syntax:
-
----
 
 # 📊 Customer Churn Prediction and Retention Dashboard
 
