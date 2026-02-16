@@ -137,3 +137,137 @@ All deep models used:
 ## 🔹 7. Model 1 — 2-Layer LSTM
 
 ### Architecture
+
+
+Embedding
+↓
+LSTM(128)
+↓
+Dropout
+↓
+LSTM(64)
+↓
+Dropout
+↓
+Dense(1, sigmoid)
+
+
+### 📊 Results
+- Accuracy: **89.74%**
+- F1 Score: **0.899**
+
+Confusion Matrix:
+- False Positives: 264
+- False Negatives: 249
+
+### 🔎 Observation
+Stacking LSTM layers increases abstraction but does not drastically outperform the baseline.
+
+---
+
+## 🔹 8. Model 2 — 2-Layer Bidirectional LSTM (Best Model)
+
+### Architecture
+
+
+Embedding
+↓
+BiLSTM(128)
+↓
+Dropout
+↓
+BiLSTM(64)
+↓
+Dropout
+↓
+Dense(1, sigmoid)
+
+
+### 📊 Results
+- Accuracy: **90.6%**
+- Precision: **0.907**
+- Recall: **0.907**
+- F1 Score: **0.907**
+
+### Confusion Matrix
+
+|              | Pred Neg | Pred Pos |
+|--------------|----------|----------|
+| Actual Neg   | 2227     | 235      |
+| Actual Pos   | 235      | 2303     |
+
+Balanced misclassification across classes.
+
+---
+
+## 📊 9. Comparative Analysis
+
+| Model | Accuracy | F1 Score |
+|--------|----------|----------|
+| TF-IDF + Logistic Regression | 0.89 | 0.89 |
+| 2-Layer LSTM | 0.897 | 0.899 |
+| ⭐ 2-Layer BiLSTM | **0.906** | **0.907** |
+
+### 🔎 Key Insights
+- Classical models remain highly competitive.
+- Deep learning improves performance modestly.
+- Bidirectional modeling provides measurable gains.
+- Contextual modeling improves negation handling.
+- Improvement from baseline to best model: ~1.6%.
+
+---
+
+## 🎓 10. Key Learnings
+
+- Sparse representations (TF-IDF) are strong for structured datasets.
+- Word2Vec embeddings improve semantic representation.
+- Bidirectional context improves sentiment classification.
+- Depth alone does not guarantee major improvements.
+- Evaluation must include precision, recall, and F1-score — not just accuracy.
+
+---
+
+## ⚠ 11. Limitations
+
+- IMDb dataset is relatively clean.
+- Gains may be larger on noisier datasets.
+- No attention mechanism implemented.
+- No hyperparameter grid search performed.
+
+---
+
+## 🚀 12. Future Improvements
+
+- Add Attention Mechanism
+- Try GRU
+- Use GloVe embeddings
+- Implement Transformer-based models (BERT)
+- Perform hyperparameter tuning
+- Use learning rate schedulers
+
+---
+
+## 🏁 13. Conclusion
+
+This project demonstrates that while classical machine learning methods provide strong baselines in sentiment classification, deep learning models — particularly stacked Bidirectional LSTMs — achieve improved performance by capturing long-range contextual dependencies.
+
+However, improvements are incremental rather than dramatic, highlighting that model selection should consider dataset characteristics and computational trade-offs.
+
+---
+
+## 💡 Tech Stack
+
+- Python
+- NumPy
+- Pandas
+- Scikit-learn
+- Gensim
+- TensorFlow / Keras
+- Matplotlib / Seaborn
+
+---
+
+## 👨‍💻 Author
+
+Lokesh Gopal Meka  
+Aspiring Machine Learning Engineer
